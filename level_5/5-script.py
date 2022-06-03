@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""5-script module"""
 import requests
 from bs4 import BeautifulSoup
 import pytesseract
