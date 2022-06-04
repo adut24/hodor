@@ -22,19 +22,15 @@ while i < 98:
             soup = BeautifulSoup(auth, 'html.parser')
             key = soup.find(type="hidden")['value']
             data = {'id': "4281", 'holdthedoor': "submit", 'key': key}
-            check = list(soup.find_all('td'))
-            for a in range(len(check)):
-                if '4281' in check[a].text:
-                    break
             session.post(url, data=data, headers=headers, proxies=proxies,
-                         timeout=5)
+                            timeout=5)
             check = list(soup.find_all('td'))
             for a in range(len(check)):
                 if '4281' in check[a].text:
                     break
             if i < int(check[a + 1].text):
                 i = int(check[a + 1].text)
-                print('{}'.format(i))
+                print(f'{i}')
             else:
                 print('vote fail')
         except Exception:
